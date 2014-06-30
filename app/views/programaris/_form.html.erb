@@ -1,0 +1,18 @@
+
+<%= simple_form_for @programari, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.label :data %><br>
+  <%= f.text_field :data,:placeholder => 'Data programare...',input_html: {size: 70} %><br> 
+  <%= f.input :ora, collection:  ['09:00','09:30', '10:00','10:30', '11:00','11:30', '12:00', '12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','19:00','19:30'] %><br>
+  <%= f.input :medicul,label: "Medic", :placeholder => 'Medic la care este programat...', collection:  ['Raluca Enuca', 'Bogdan Chisevescu']%><br>
+  <%= f.input :tip,label: 'Tip investigatie',:placeholder => 'Tip investigatie...'  %><br>
+  <%= f.input :pacient_id,:as => :hidden %>
+  <div class="form-actions">
+    <%= f.button :submit,'Salveaza programarea' , :class => 'btn-primary' %>
+    <%= link_to 'Anuleaza',
+                pacients_path, :class => 'btn' %>
+  </div>
+<% end %>
+<br><br>
+
+
+

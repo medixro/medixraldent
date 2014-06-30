@@ -1,0 +1,83 @@
+<%- model_class = Programari -%>
+<div class="page-header">
+  <h1>Programari</h1>
+
+  <br><br>
+
+  <% te = Time.now %>
+  <h2>Programari <%= te.strftime("%d-%m-%Y") %></h2>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name('id') %></th>
+      <th><%= model_class.human_attribute_name('Pacient') %></th>
+      <th><%= model_class.human_attribute_name(:medic) %></th>
+      <th><%= model_class.human_attribute_name(:data) %></th>
+      <th><%= model_class.human_attribute_name(:ora) %></th>
+      
+      <th><%= model_class.human_attribute_name("Tip investigatie") %></th>
+     
+      <th>Optiuni</th>
+    </tr>
+  </thead>
+  <tbody>
+     <% t = Time.now %>
+   
+    <% @programaris.each do |programari| %>
+    <% if programari.data  == t.strftime("%d-%m-%Y")  %>
+    <% p = Pacient.find(programari.pacient_id) %>
+      <tr>
+        <td><%= link_to programari.id, programari_path(programari) %></td>
+        <td><%= link_to p.prenume, pacient_path(p) %> <%=link_to p.nume, pacient_path(p) %></td>
+          <td><%= programari.medicul %></td>
+        <td><%= programari.data %></td>
+        <td><%= programari.ora %></td>
+      
+        <td><%= programari.tip %></td>
+      
+        <td>
+          <%= link_to 'Modifica programare',
+                      edit_programari_path(programari), :class => 'btn btn-mini btn-info' %>
+          <%= link_to 'Anuleaza programare',
+                      programari_path(programari),
+                      :method => :delete,
+                      :data => { :confirm => 'Esti sigur ca vrei sa anulezi programarea?' },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<div id="articles">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    Luna <%= @date.strftime("%m anul %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% t = date.strftime("%d-%m-%Y") %>
+    <% Programari.find_each do |programari| %>
+   
+    <% if programari.data == t.to_s %>
+      <ul>
+        
+              <% p = Pacient.find(programari.pacient_id) %>
+          <li><%= link_to p.prenume, pacient_path(p) %> <%= link_to p.nume, pacient_path(p) %></li>
+              Ora: <%= programari.ora %><br>
+              <%= link_to 'Anuleaza',
+              programari_path(programari),
+              :method => 'delete',
+              :data => { :confirm => 'Esti sigur ca vrei sa anulezi programarea?' } %>
+             
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
+<br><br><br>
+

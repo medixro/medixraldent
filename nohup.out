@@ -1,0 +1,2209 @@
+[2014-06-15 14:21:38] INFO  WEBrick 1.3.1
+[2014-06-15 14:21:38] INFO  ruby 2.1.2 (2014-05-08) [x86_64-linux]
+[2014-06-15 14:21:38] INFO  WEBrick::HTTPServer#start: pid=8791 port=1000
+=> Booting WEBrick
+=> Rails 4.1.1 application starting in development on http://0.0.0.0:1000
+=> Run `rails server -h` for more startup options
+=> Notice: server is listening on all interfaces (0.0.0.0). Consider using 127.0.0.1 (--binding option)
+=> Ctrl-C to shutdown server
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:26:08 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (34.9ms)
+Completed 200 OK in 281ms (Views: 248.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/pacients/new" for 95.76.70.31 at 2014-06-15 16:26:38 +0300
+Processing by PacientsController#new as HTML
+  Rendered pacients/_form.html.erb (139.6ms)
+  Rendered pacients/new.html.erb within layouts/application (148.7ms)
+Completed 200 OK in 171ms (Views: 168.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/pacients" for 95.76.70.31 at 2014-06-15 16:27:17 +0300
+Processing by PacientsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3CWa8kcwTsu4JS4cKmr6uqDE1uPfO2ro0LY4nCu78tM=", "pacient"=>{"nume"=>"S", "prenume"=>"Iulia", "adresa"=>"abc", "nrtel"=>"0743556766", "email"=>"iulia_sim_ply@yahoo.com"}, "commit"=>"Salveaza"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "pacients" ("adresa", "created_at", "email", "nrtel", "nume", "prenume", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["adresa", "abc"], ["created_at", "2014-06-15 13:27:17.166325"], ["email", "iulia_sim_ply@yahoo.com"], ["nrtel", "0743556766"], ["nume", "S"], ["prenume", "Iulia"], ["updated_at", "2014-06-15 13:27:17.166325"]]
+  [1m[36m (150.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://89.32.135.10:1000/pacients/2
+Completed 302 Found in 165ms (ActiveRecord: 151.3ms)
+
+
+Started GET "/pacients/2" for 95.76.70.31 at 2014-06-15 16:27:17 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPacient Load (0.5ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered pacients/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 33ms (Views: 28.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/2/programaris/new" for 95.76.70.31 at 2014-06-15 16:27:23 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"2"}
+  [1m[36mPacient Load (0.3ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered programaris/_form.html.erb (24.2ms)
+  Rendered programaris/new.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 116ms (Views: 52.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:27:26 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.5ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 36ms (Views: 34.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:27:30 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.5ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 45ms (Views: 43.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:27:33 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 33ms (Views: 30.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:27:51 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 31ms (Views: 29.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:27:53 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 32ms (Views: 29.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:27:55 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.5ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:28:04 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 32ms (Views: 30.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:28:09 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:28:10 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 33ms (Views: 30.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:28:10 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1" for 95.76.70.31 at 2014-06-15 16:28:15 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 31ms (Views: 28.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients/1/programaris/new" for 95.76.70.31 at 2014-06-15 16:28:17 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (18.9ms)
+  Rendered programaris/new.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 49ms (Views: 45.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/programaris" for 95.76.70.31 at 2014-06-15 16:28:40 +0300
+Processing by ProgramarisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3CWa8kcwTsu4JS4cKmr6uqDE1uPfO2ro0LY4nCu78tM=", "programari"=>{"data"=>"17.06.2014", "ora"=>"", "medicul"=>"", "tip"=>"", "pacient_id"=>"1"}, "commit"=>"Salveaza programarea"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "programaris" ("created_at", "data", "medicul", "ora", "pacient_id", "tip", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-06-15 13:28:40.951275"], ["data", "17.06.2014"], ["medicul", ""], ["ora", ""], ["pacient_id", 1], ["tip", ""], ["updated_at", "2014-06-15 13:28:40.951275"]]
+  [1m[36m (162.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://89.32.135.10:1000/programaris/3
+Completed 302 Found in 170ms (ActiveRecord: 162.9ms)
+
+
+Started GET "/programaris/3" for 95.76.70.31 at 2014-06-15 16:28:41 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered programaris/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 28ms (Views: 25.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:28:55 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1" for 95.76.70.31 at 2014-06-15 16:28:59 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPacient Load (0.3ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:29:03 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 40ms (Views: 38.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/programaris/3/edit" for 95.76.70.31 at 2014-06-15 16:29:08 +0300
+Processing by ProgramarisController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProgramari Load (0.2ms)[0m  SELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered programaris/_form.html.erb (18.9ms)
+  Rendered programaris/edit.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 48ms (Views: 45.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/programaris/3/edit" for 95.76.70.31 at 2014-06-15 16:29:19 +0300
+Processing by ProgramarisController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProgramari Load (0.2ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered programaris/_form.html.erb (20.2ms)
+  Rendered programaris/edit.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 49ms (Views: 46.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:29:22 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1" for 95.76.70.31 at 2014-06-15 16:29:23 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:29:26 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 34ms (Views: 32.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/programaris/2/edit" for 95.76.70.31 at 2014-06-15 16:29:28 +0300
+Processing by ProgramarisController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProgramari Load (0.2ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered programaris/_form.html.erb (14.9ms)
+  Rendered programaris/edit.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 38ms (Views: 34.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:29:36 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.6ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pacients/1" for 95.76.70.31 at 2014-06-15 16:29:37 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients/1/programaris/new" for 95.76.70.31 at 2014-06-15 16:29:40 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/_form.html.erb (18.2ms)
+  Rendered programaris/new.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 43ms (Views: 39.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/programaris" for 95.76.70.31 at 2014-06-15 16:29:53 +0300
+Processing by ProgramarisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3CWa8kcwTsu4JS4cKmr6uqDE1uPfO2ro0LY4nCu78tM=", "programari"=>{"data"=>"06.05.2015", "ora"=>"", "medicul"=>"", "tip"=>"", "pacient_id"=>"1"}, "commit"=>"Salveaza programarea"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "programaris" ("created_at", "data", "medicul", "ora", "pacient_id", "tip", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-06-15 13:29:53.592018"], ["data", "06.05.2015"], ["medicul", ""], ["ora", ""], ["pacient_id", 1], ["tip", ""], ["updated_at", "2014-06-15 13:29:53.592018"]]
+  [1m[35m (154.8ms)[0m  commit transaction
+Redirected to http://89.32.135.10:1000/programaris/4
+Completed 302 Found in 162ms (ActiveRecord: 155.5ms)
+
+
+Started GET "/programaris/4" for 95.76.70.31 at 2014-06-15 16:29:54 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProgramari Load (0.2ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered programaris/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 33ms (Views: 29.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:30:37 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.5ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 30ms (Views: 28.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/1/edit" for 95.76.70.31 at 2014-06-15 16:30:51 +0300
+Processing by PacientsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered pacients/_form.html.erb (22.2ms)
+  Rendered pacients/edit.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 51ms (Views: 48.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients" for 95.76.70.31 at 2014-06-15 16:30:55 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 29ms (Views: 27.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:30:57 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 37ms (Views: 35.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/notificaris" for 95.76.70.31 at 2014-06-15 16:30:58 +0300
+Processing by NotificarisController#index as HTML
+  [1m[36mNotificari Load (0.3ms)[0m  [1mSELECT "notificaris".* FROM "notificaris"[0m
+  Rendered notificaris/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 32ms (Views: 27.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:31:02 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 35ms (Views: 32.7ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/programaris/3" for 95.76.70.31 at 2014-06-15 16:31:23 +0300
+Processing by ProgramarisController#destroy as HTML
+  Parameters: {"authenticity_token"=>"3CWa8kcwTsu4JS4cKmr6uqDE1uPfO2ro0LY4nCu78tM=", "id"=>"3"}
+  [1m[35mProgramari Load (0.2ms)[0m  SELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "programaris" WHERE "programaris"."id" = ?  [["id", 3]]
+  [1m[36m (167.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://89.32.135.10:1000/programaris
+Completed 302 Found in 174ms (ActiveRecord: 168.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:31:24 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.5ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 86.125.240.182 at 2014-06-15 16:32:46 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1" for 86.125.240.182 at 2014-06-15 16:32:52 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 29ms (Views: 26.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients/1/programaris/new" for 86.125.240.182 at 2014-06-15 16:32:56 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (19.8ms)
+  Rendered programaris/new.html.erb within layouts/application (22.8ms)
+Completed 200 OK in 51ms (Views: 46.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1/programaris/new" for 86.125.240.182 at 2014-06-15 16:33:02 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.3ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (18.0ms)
+  Rendered programaris/new.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 45ms (Views: 41.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:33:15 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.5ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 35ms (Views: 33.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pacients/1" for 95.76.70.31 at 2014-06-15 16:33:18 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 30ms (Views: 27.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients/1/programaris/new" for 95.76.70.31 at 2014-06-15 16:33:20 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.3ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (17.0ms)
+  Rendered programaris/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 44ms (Views: 39.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/programaris" for 95.76.70.31 at 2014-06-15 16:33:31 +0300
+Processing by ProgramarisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"99a1C8HfJ4/sBCd9hygtJG8NeX/ygaTtxOvO19jZZvI=", "programari"=>{"data"=>"07/06/2014", "ora"=>"", "medicul"=>"", "tip"=>"", "pacient_id"=>"1"}, "commit"=>"Salveaza programarea"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "programaris" ("created_at", "data", "medicul", "ora", "pacient_id", "tip", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-06-15 13:33:31.196625"], ["data", "07/06/2014"], ["medicul", ""], ["ora", ""], ["pacient_id", 1], ["tip", ""], ["updated_at", "2014-06-15 13:33:31.196625"]]
+  [1m[36m (156.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://89.32.135.10:1000/programaris/5
+Completed 302 Found in 164ms (ActiveRecord: 156.8ms)
+
+
+Started GET "/programaris/5" for 95.76.70.31 at 2014-06-15 16:33:31 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mProgramari Load (0.2ms)[0m  SELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered programaris/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 33ms (Views: 30.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:33:35 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.5ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 27ms (Views: 25.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/notificaris" for 95.76.70.31 at 2014-06-15 16:33:39 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.4ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 32ms (Views: 30.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:33:39 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.7ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.3ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 39ms (Views: 36.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/programaris/5/edit" for 95.76.70.31 at 2014-06-15 16:34:07 +0300
+Processing by ProgramarisController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProgramari Load (0.2ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered programaris/_form.html.erb (20.4ms)
+  Rendered programaris/edit.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 50ms (Views: 47.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/programaris/5" for 95.76.70.31 at 2014-06-15 16:34:14 +0300
+Processing by ProgramarisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"99a1C8HfJ4/sBCd9hygtJG8NeX/ygaTtxOvO19jZZvI=", "programari"=>{"data"=>"?", "ora"=>"", "medicul"=>"", "tip"=>"", "pacient_id"=>"1"}, "commit"=>"Salveaza programarea", "id"=>"5"}
+  [1m[35mProgramari Load (0.2ms)[0m  SELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "programaris" SET "data" = ?, "updated_at" = ? WHERE "programaris"."id" = 5  [["data", "?"], ["updated_at", "2014-06-15 13:34:14.299721"]]
+  [1m[36m (145.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://89.32.135.10:1000/programaris/5
+Completed 302 Found in 155ms (ActiveRecord: 146.2ms)
+
+
+Started GET "/programaris/5" for 95.76.70.31 at 2014-06-15 16:34:14 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mProgramari Load (0.2ms)[0m  SELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered programaris/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 32ms (Views: 29.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:34:18 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.5ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 37ms (Views: 35.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/programaris/5/edit" for 95.76.70.31 at 2014-06-15 16:34:20 +0300
+Processing by ProgramarisController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProgramari Load (0.2ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 5]]
+  Rendered programaris/_form.html.erb (19.4ms)
+  Rendered programaris/edit.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 48ms (Views: 45.7ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/programaris/5" for 95.76.70.31 at 2014-06-15 16:34:47 +0300
+Processing by ProgramarisController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"99a1C8HfJ4/sBCd9hygtJG8NeX/ygaTtxOvO19jZZvI=", "programari"=>{"data"=>"06/08/2014", "ora"=>"16:00", "medicul"=>"", "tip"=>"", "pacient_id"=>"1"}, "commit"=>"Salveaza programarea", "id"=>"5"}
+  [1m[35mProgramari Load (0.2ms)[0m  SELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "programaris" SET "data" = ?, "ora" = ?, "updated_at" = ? WHERE "programaris"."id" = 5  [["data", "06/08/2014"], ["ora", "16:00"], ["updated_at", "2014-06-15 13:34:47.585647"]]
+  [1m[36m (152.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://89.32.135.10:1000/programaris/5
+Completed 302 Found in 160ms (ActiveRecord: 153.3ms)
+
+
+Started GET "/programaris/5" for 95.76.70.31 at 2014-06-15 16:34:47 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mProgramari Load (0.2ms)[0m  SELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered programaris/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients" for 86.125.240.182 at 2014-06-15 16:34:48 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris/5" for 95.76.70.31 at 2014-06-15 16:34:53 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mProgramari Load (0.2ms)[0m  SELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered programaris/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients/2" for 86.125.240.182 at 2014-06-15 16:34:56 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered pacients/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 29ms (Views: 26.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:34:57 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:34:58 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.5ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.3ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 38ms (Views: 35.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:34:59 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:34:59 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 37ms (Views: 35.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pacients/2/programaris/new" for 86.125.240.182 at 2014-06-15 16:35:00 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"2"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mPacient Load (0.3ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered programaris/_form.html.erb (18.8ms)
+  Rendered programaris/new.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 45ms (Views: 41.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/notificaris" for 95.76.70.31 at 2014-06-15 16:35:02 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.3ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:35:03 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.5ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 37ms (Views: 35.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/pacients/2/programaris/new" for 86.125.240.182 at 2014-06-15 16:35:06 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"2"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered programaris/_form.html.erb (20.0ms)
+  Rendered programaris/new.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 50ms (Views: 46.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:35:10 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 30ms (Views: 28.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1" for 95.76.70.31 at 2014-06-15 16:35:12 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 32ms (Views: 29.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients/1/programaris/new" for 95.76.70.31 at 2014-06-15 16:35:15 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.3ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (18.3ms)
+  Rendered programaris/new.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 48ms (Views: 43.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/2" for 86.125.240.182 at 2014-06-15 16:35:34 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered pacients/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 29ms (Views: 26.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/programaris" for 95.76.70.31 at 2014-06-15 16:35:37 +0300
+Processing by ProgramarisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"99a1C8HfJ4/sBCd9hygtJG8NeX/ygaTtxOvO19jZZvI=", "programari"=>{"data"=>"10/10/2014", "ora"=>"", "medicul"=>"", "tip"=>"", "pacient_id"=>"1"}, "commit"=>"Salveaza programarea"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "programaris" ("created_at", "data", "medicul", "ora", "pacient_id", "tip", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-06-15 13:35:37.044099"], ["data", "10/10/2014"], ["medicul", ""], ["ora", ""], ["pacient_id", 1], ["tip", ""], ["updated_at", "2014-06-15 13:35:37.044099"]]
+  [1m[35m (169.8ms)[0m  commit transaction
+Redirected to http://89.32.135.10:1000/programaris/6
+Completed 302 Found in 177ms (ActiveRecord: 170.4ms)
+
+
+Started GET "/programaris/6" for 95.76.70.31 at 2014-06-15 16:35:37 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProgramari Load (0.2ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered programaris/show.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 32ms (Views: 28.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients" for 86.125.240.182 at 2014-06-15 16:35:38 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.5ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:35:58 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.5ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/notificaris" for 95.76.70.31 at 2014-06-15 16:36:05 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.4ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 30ms (Views: 28.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients" for 213.233.84.70 at 2014-06-15 16:36:26 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.5ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 28ms (Views: 26.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/1" for 213.233.84.70 at 2014-06-15 16:36:29 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 28ms (Views: 25.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients/1/programaris/new" for 213.233.84.70 at 2014-06-15 16:36:33 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.3ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (19.1ms)
+  Rendered programaris/new.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 47ms (Views: 43.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/1/programaris/new" for 213.233.84.70 at 2014-06-15 16:36:37 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (18.5ms)
+  Rendered programaris/new.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 47ms (Views: 43.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:36:37 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:37:01 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 39ms (Views: 37.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/programaris/4/edit" for 95.76.70.31 at 2014-06-15 16:37:06 +0300
+Processing by ProgramarisController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProgramari Load (0.2ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered programaris/_form.html.erb (18.7ms)
+  Rendered programaris/edit.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients" for 95.76.70.31 at 2014-06-15 16:37:16 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:37:20 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.3ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 37ms (Views: 35.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/pacients" for 213.233.84.70 at 2014-06-15 16:37:42 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 213.233.84.70 at 2014-06-15 16:37:45 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 29ms (Views: 27.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 213.233.84.70 at 2014-06-15 16:37:47 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 39ms (Views: 37.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:38:11 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.5ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:38:15 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/notificaris" for 95.76.70.31 at 2014-06-15 16:38:20 +0300
+Processing by NotificarisController#index as HTML
+  [1m[36mNotificari Load (0.4ms)[0m  [1mSELECT "notificaris".* FROM "notificaris"[0m
+  Rendered notificaris/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 40ms (Views: 38.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:38:20 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 40ms (Views: 38.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:38:25 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 29ms (Views: 27.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1" for 95.76.70.31 at 2014-06-15 16:38:27 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 28ms (Views: 25.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients/1/programaris/new" for 95.76.70.31 at 2014-06-15 16:38:32 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (17.8ms)
+  Rendered programaris/new.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 47ms (Views: 43.5ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/programaris/4" for 213.233.84.70 at 2014-06-15 16:38:39 +0300
+Processing by ProgramarisController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Tkvtn/oNHay7kS3suJ/PpKTiQLd+xelxGcMeaNsS93Y=", "id"=>"4"}
+  [1m[36mProgramari Load (0.3ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "programaris" WHERE "programaris"."id" = ?[0m  [["id", 4]]
+  [1m[35m (150.2ms)[0m  commit transaction
+Redirected to http://89.32.135.10:1000/programaris
+Completed 302 Found in 155ms (ActiveRecord: 151.1ms)
+
+
+Started GET "/programaris" for 213.233.84.70 at 2014-06-15 16:38:40 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 37ms (Views: 34.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pacients" for 95.76.70.31 at 2014-06-15 16:38:42 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 30ms (Views: 28.1ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/programaris/5" for 213.233.84.70 at 2014-06-15 16:38:44 +0300
+Processing by ProgramarisController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Tkvtn/oNHay7kS3suJ/PpKTiQLd+xelxGcMeaNsS93Y=", "id"=>"5"}
+  [1m[35mProgramari Load (0.2ms)[0m  SELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "programaris" WHERE "programaris"."id" = ?  [["id", 5]]
+  [1m[36m (147.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://89.32.135.10:1000/programaris
+Completed 302 Found in 163ms (ActiveRecord: 148.6ms)
+
+
+Started GET "/programaris" for 213.233.84.70 at 2014-06-15 16:38:44 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/programaris/6" for 213.233.84.70 at 2014-06-15 16:38:48 +0300
+Processing by ProgramarisController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Tkvtn/oNHay7kS3suJ/PpKTiQLd+xelxGcMeaNsS93Y=", "id"=>"6"}
+  [1m[36mProgramari Load (0.2ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "programaris" WHERE "programaris"."id" = ?[0m  [["id", 6]]
+  [1m[35m (146.4ms)[0m  commit transaction
+Redirected to http://89.32.135.10:1000/programaris
+Completed 302 Found in 151ms (ActiveRecord: 147.2ms)
+
+
+Started GET "/programaris" for 213.233.84.70 at 2014-06-15 16:38:49 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/notificaris" for 95.76.70.31 at 2014-06-15 16:39:07 +0300
+Processing by NotificarisController#index as HTML
+  [1m[36mNotificari Load (0.4ms)[0m  [1mSELECT "notificaris".* FROM "notificaris"[0m
+  Rendered notificaris/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:39:11 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 28ms (Views: 26.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/new" for 95.76.70.31 at 2014-06-15 16:39:20 +0300
+Processing by PacientsController#new as HTML
+  Rendered pacients/_form.html.erb (21.1ms)
+  Rendered pacients/new.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 47ms (Views: 45.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:39:28 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 32ms (Views: 29.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:39:32 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:39:34 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:41:00 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:41:01 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/notificaris" for 95.76.70.31 at 2014-06-15 16:41:03 +0300
+Processing by NotificarisController#index as HTML
+  [1m[36mNotificari Load (0.4ms)[0m  [1mSELECT "notificaris".* FROM "notificaris"[0m
+  Rendered notificaris/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 30ms (Views: 28.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:41:04 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.5ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:43:54 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 28ms (Views: 27.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1" for 95.76.70.31 at 2014-06-15 16:44:19 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 27ms (Views: 25.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients/1/programaris/new" for 95.76.70.31 at 2014-06-15 16:44:25 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (19.7ms)
+  Rendered programaris/new.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 50ms (Views: 46.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:45:14 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 29ms (Views: 27.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1" for 95.76.70.31 at 2014-06-15 16:45:20 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 28ms (Views: 25.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients/1/programaris/new" for 95.76.70.31 at 2014-06-15 16:45:21 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.3ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (17.9ms)
+  Rendered programaris/new.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 47ms (Views: 43.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:57:10 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 29ms (Views: 27.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/notificaris" for 95.76.70.31 at 2014-06-15 16:57:17 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.3ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 30ms (Views: 28.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 16:57:17 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 32ms (Views: 30.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 16:57:18 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 31ms (Views: 29.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 213.233.84.70 at 2014-06-15 19:06:39 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 27ms (Views: 25.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1" for 213.233.84.70 at 2014-06-15 19:06:44 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPacient Load (0.3ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pacients/1/programaris/new" for 213.233.84.70 at 2014-06-15 19:06:46 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/_form.html.erb (18.2ms)
+  Rendered programaris/new.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 48ms (Views: 44.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1/programaris/new" for 213.233.84.70 at 2014-06-15 19:06:54 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/_form.html.erb (18.0ms)
+  Rendered programaris/new.html.erb within layouts/application (20.6ms)
+Completed 200 OK in 47ms (Views: 43.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 22:04:23 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris/3/edit" for 95.76.70.31 at 2014-06-15 22:04:24 +0300
+Processing by ProgramarisController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProgramari Load (0.2ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 3]]
+Completed 404 Not Found in 3ms
+
+ActiveRecord::RecordNotFound (Couldn't find Programari with 'id'=3):
+  app/controllers/programaris_controller.rb:68:in `set_programari'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.1.2/gems/actionpack-4.1.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (26.6ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 22:04:24 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 32ms (Views: 30.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pacients/1" for 95.76.70.31 at 2014-06-15 22:04:26 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 28ms (Views: 25.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/notificaris" for 95.76.70.31 at 2014-06-15 22:04:27 +0300
+Processing by NotificarisController#index as HTML
+  [1m[36mNotificari Load (0.4ms)[0m  [1mSELECT "notificaris".* FROM "notificaris"[0m
+  Rendered notificaris/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 32ms (Views: 31.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1/programaris/new" for 95.76.70.31 at 2014-06-15 22:04:28 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/_form.html.erb (17.4ms)
+  Rendered programaris/new.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 46ms (Views: 42.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 22:32:28 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/notificaris" for 95.76.70.31 at 2014-06-15 22:32:29 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.4ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 30ms (Views: 27.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 22:32:31 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 28ms (Views: 26.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 22:32:31 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 31ms (Views: 28.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 22:32:33 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1" for 95.76.70.31 at 2014-06-15 22:32:34 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 28ms (Views: 25.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients/1/programaris/new" for 95.76.70.31 at 2014-06-15 22:32:36 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/_form.html.erb (17.4ms)
+  Rendered programaris/new.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 44ms (Views: 40.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 22:32:43 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 28ms (Views: 26.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-15 22:33:05 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 32ms (Views: 29.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/notificaris" for 95.76.70.31 at 2014-06-15 22:33:09 +0300
+Processing by NotificarisController#index as HTML
+  [1m[36mNotificari Load (0.3ms)[0m  [1mSELECT "notificaris".* FROM "notificaris"[0m
+  Rendered notificaris/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-15 22:33:10 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 81.180.92.184 at 2014-06-16 09:13:10 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.5ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-16 18:23:34 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-16 18:23:34 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 31ms (Views: 28.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-16 18:23:36 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 95.76.70.31 at 2014-06-16 18:23:37 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 30ms (Views: 28.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-16 18:23:39 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1" for 95.76.70.31 at 2014-06-16 18:23:40 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 25ms (Views: 22.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/pacients/1/programaris/new" for 95.76.70.31 at 2014-06-16 18:23:41 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/_form.html.erb (16.4ms)
+  Rendered programaris/new.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 45ms (Views: 41.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 95.76.70.31 at 2014-06-16 18:23:44 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 86.125.240.182 at 2014-06-16 20:11:44 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 37ms (Views: 35.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 86.125.240.182 at 2014-06-16 20:11:47 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 31ms (Views: 29.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/notificaris" for 86.125.240.182 at 2014-06-16 20:11:49 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.3ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/programaris" for 86.125.240.182 at 2014-06-16 20:11:50 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pacients/1" for 86.125.240.182 at 2014-06-16 20:11:55 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/programaris" for 86.125.240.182 at 2014-06-16 20:11:59 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/programaris/2" for 86.125.240.182 at 2014-06-16 20:12:02 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProgramari Load (0.2ms)[0m  SELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered programaris/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 28ms (Views: 26.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/programaris/2" for 86.125.240.182 at 2014-06-16 20:15:32 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProgramari Load (0.3ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 33ms (Views: 30.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/programaris/2" for 86.125.240.182 at 2014-06-16 20:15:49 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProgramari Load (0.2ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 33ms (Views: 29.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/programaris/2" for 86.125.240.182 at 2014-06-16 20:17:26 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProgramari Load (0.2ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris/2" for 86.125.240.182 at 2014-06-16 20:17:44 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProgramari Load (0.2ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 30ms (Views: 27.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris/2" for 86.125.240.182 at 2014-06-16 20:18:02 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProgramari Load (0.3ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 30ms (Views: 27.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients" for 86.125.240.182 at 2014-06-16 20:18:07 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 41ms (Views: 39.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 86.125.240.182 at 2014-06-16 20:18:09 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 32ms (Views: 30.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 86.125.240.182 at 2014-06-16 20:18:11 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.7ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pacients/1" for 86.125.240.182 at 2014-06-16 20:18:15 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/programaris" for 86.125.240.182 at 2014-06-16 20:18:17 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.3ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 38ms (Views: 36.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/programaris" for 86.125.240.182 at 2014-06-16 20:19:07 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 36ms (Views: 34.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/notificaris" for 86.125.240.182 at 2014-06-16 20:19:15 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.4ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 31ms (Views: 29.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 86.125.240.182 at 2014-06-16 20:19:16 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.5ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 32ms (Views: 30.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/programaris/2" for 86.125.240.182 at 2014-06-16 20:19:17 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProgramari Load (0.2ms)[0m  [1mSELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 33ms (Views: 30.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients" for 86.125.240.182 at 2014-06-16 20:19:19 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.5ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/1" for 86.125.240.182 at 2014-06-16 20:19:24 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPacient Load (0.3ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 29ms (Views: 26.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pacients/1/programaris/new" for 86.125.240.182 at 2014-06-16 20:19:26 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.3ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (19.7ms)
+  Rendered programaris/new.html.erb within layouts/application (22.7ms)
+Completed 200 OK in 50ms (Views: 46.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/1/programaris/new" for 86.125.240.182 at 2014-06-16 20:19:29 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.3ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (19.5ms)
+  Rendered programaris/new.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 45ms (Views: 40.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/programaris" for 86.125.240.182 at 2014-06-16 20:20:07 +0300
+Processing by ProgramarisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2AjL6FHGpgP8Rb6td3d++x7IviAl17PEhBaFrPZjXDw=", "programari"=>{"data"=>"06/19/2014", "ora"=>"16", "medicul"=>"Ionescu George", "tip"=>"radiografie pulmonara", "pacient_id"=>"1"}, "commit"=>"Salveaza programarea"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "programaris" ("created_at", "data", "medicul", "ora", "pacient_id", "tip", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-06-16 17:20:07.581282"], ["data", "06/19/2014"], ["medicul", "Ionescu George"], ["ora", "16"], ["pacient_id", 1], ["tip", "radiografie pulmonara"], ["updated_at", "2014-06-16 17:20:07.581282"]]
+  [1m[36m (143.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://89.32.135.10:1000/programaris/7
+Completed 302 Found in 151ms (ActiveRecord: 144.3ms)
+
+
+Started GET "/programaris/7" for 86.125.240.182 at 2014-06-16 20:20:07 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mProgramari Load (0.2ms)[0m  SELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 28ms (Views: 25.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients" for 86.125.240.182 at 2014-06-16 20:20:10 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 86.125.240.182 at 2014-06-16 20:20:12 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 32ms (Views: 30.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/notificaris" for 86.125.240.182 at 2014-06-16 20:20:24 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.4ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 30ms (Views: 28.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 86.125.240.182 at 2014-06-16 20:20:27 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 34ms (Views: 31.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/notificaris" for 86.125.240.182 at 2014-06-16 20:20:29 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.4ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 30ms (Views: 28.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 86.125.240.182 at 2014-06-16 20:20:32 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.5ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+[2014-06-16 20:21:20] FATAL SignalException: SIGTERM
+	/usr/local/rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:170:in `select'
+	/usr/local/rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:170:in `block in start'
+	/usr/local/rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:32:in `start'
+	/usr/local/rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:160:in `start'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/handler/webrick.rb:14:in `run'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/server.rb:264:in `start'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/commands/server.rb:69:in `start'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/commands/commands_tasks.rb:81:in `block in server'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/commands/commands_tasks.rb:76:in `tap'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/commands/commands_tasks.rb:76:in `server'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/commands.rb:17:in `<top (required)>'
+	bin/rails:8:in `require'
+	bin/rails:8:in `<main>'
+[2014-06-16 20:21:20] INFO  going to shutdown ...
+[2014-06-16 20:21:20] INFO  WEBrick::HTTPServer#start done.
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 32ms (Views: 29.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 86.125.240.182 at 2014-06-16 20:20:33 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/notificaris" for 86.125.240.182 at 2014-06-16 20:20:39 +0300
+Processing by NotificarisController#index as HTML
+  [1m[36mNotificari Load (0.4ms)[0m  [1mSELECT "notificaris".* FROM "notificaris"[0m
+  Rendered notificaris/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 30ms (Views: 28.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 86.125.240.182 at 2014-06-16 20:20:40 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 35ms (Views: 32.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 86.125.240.182 at 2014-06-16 20:20:43 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 29ms (Views: 27.4ms | ActiveRecord: 0.4ms)
+Exiting
+[2014-06-18 13:16:43] INFO  WEBrick 1.3.1
+[2014-06-18 13:16:43] INFO  ruby 2.1.2 (2014-05-08) [x86_64-linux]
+[2014-06-18 13:16:43] INFO  WEBrick::HTTPServer#start: pid=5199 port=1000
+=> Booting WEBrick
+=> Rails 4.1.1 application starting in development on http://0.0.0.0:1000
+=> Run `rails server -h` for more startup options
+=> Notice: server is listening on all interfaces (0.0.0.0). Consider using 127.0.0.1 (--binding option)
+=> Ctrl-C to shutdown server
+
+
+Started GET "/programaris" for 81.180.92.184 at 2014-06-18 13:16:44 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered programaris/index.html.erb within layouts/application (76.6ms)
+Completed 200 OK in 388ms (Views: 356.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/dia" for 81.180.92.184 at 2014-06-18 13:16:45 +0300
+Processing by DiaController#index as HTML
+  [1m[36mDium Load (0.4ms)[0m  [1mSELECT "dia".* FROM "dia"[0m
+  Rendered dia/index.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 46ms (Views: 39.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/notificaris" for 81.180.92.184 at 2014-06-18 13:16:46 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.5ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 50ms (Views: 43.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/dia" for 81.180.92.184 at 2014-06-18 13:16:47 +0300
+Processing by DiaController#index as HTML
+  [1m[36mDium Load (0.4ms)[0m  [1mSELECT "dia".* FROM "dia"[0m
+  Rendered dia/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 34ms (Views: 31.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 81.180.92.184 at 2014-06-18 13:16:48 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.5ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered programaris/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 36ms (Views: 33.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 81.180.92.184 at 2014-06-18 13:16:48 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.6ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 33ms (Views: 30.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 81.180.92.187 at 2014-06-18 13:18:11 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.5ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 81.180.92.187 at 2014-06-18 13:18:31 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 31ms (Views: 29.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 81.180.92.187 at 2014-06-18 13:18:39 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered programaris/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 35ms (Views: 32.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 81.180.92.187 at 2014-06-18 13:18:41 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 81.180.92.187 at 2014-06-18 13:18:43 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.5ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered programaris/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 81.180.92.187 at 2014-06-18 13:18:48 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 32ms (Views: 30.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 84.232.228.255 at 2014-06-18 13:20:26 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1/edit" for 84.232.228.255 at 2014-06-18 13:20:36 +0300
+Processing by PacientsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPacient Load (0.3ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered pacients/_form.html.erb (87.5ms)
+  Rendered pacients/edit.html.erb within layouts/application (96.0ms)
+Completed 200 OK in 118ms (Views: 115.6ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/pacients/1" for 84.232.228.255 at 2014-06-18 13:20:41 +0300
+Processing by PacientsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5dTw5ftM4POfPeHbNB/UTGULAZvk9mZYv/unKzYrG0=", "pacient"=>{"nume"=>"Avasiloaie", "prenume"=>"Ionut", "adresa"=>"Timisoara , str Zoltan Kodaly nr 9 ", "nrtel"=>"0724896535", "email"=>"ionut.pavlencu@gmail.com"}, "commit"=>"Salveaza", "id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://89.32.135.10:1000/pacients/1
+Completed 302 Found in 7ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/pacients/1" for 84.232.228.255 at 2014-06-18 13:20:42 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"  WHERE "programaris"."pacient_id" = ?  [["pacient_id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (37.9ms)
+Completed 200 OK in 61ms (Views: 57.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/pacients" for 84.232.228.255 at 2014-06-18 13:20:49 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.5ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 31ms (Views: 29.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/2/edit" for 84.232.228.255 at 2014-06-18 13:20:52 +0300
+Processing by PacientsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPacient Load (0.3ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered pacients/_form.html.erb (23.7ms)
+  Rendered pacients/edit.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 67ms (Views: 64.8ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/pacients/2" for 84.232.228.255 at 2014-06-18 13:21:07 +0300
+Processing by PacientsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5dTw5ftM4POfPeHbNB/UTGULAZvk9mZYv/unKzYrG0=", "pacient"=>{"nume"=>"Gheorghe", "prenume"=>"Ion", "adresa"=>"Timisoara , b-dul Take Ionescu nr 6", "nrtel"=>"0723984783", "email"=>"ionut.pavlencu@gmail.com"}, "commit"=>"Salveaza", "id"=>"2"}
+  [1m[36mPacient Load (0.3ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "pacients" SET "nrtel" = ?, "updated_at" = ? WHERE "pacients"."id" = 2[0m  [["nrtel", "0723984783"], ["updated_at", "2014-06-18 10:21:07.246672"]]
+  [1m[35m (138.3ms)[0m  commit transaction
+Redirected to http://89.32.135.10:1000/pacients/2
+Completed 302 Found in 148ms (ActiveRecord: 139.4ms)
+
+
+Started GET "/pacients/2" for 84.232.228.255 at 2014-06-18 13:21:07 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProgramari Load (0.3ms)[0m  SELECT "programaris".* FROM "programaris"  WHERE "programaris"."pacient_id" = ?  [["pacient_id", 2]]
+  Rendered pacients/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 35ms (Views: 32.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/notificaris" for 84.232.228.255 at 2014-06-18 13:21:10 +0300
+Processing by NotificarisController#index as HTML
+  [1m[36mNotificari Load (0.4ms)[0m  [1mSELECT "notificaris".* FROM "notificaris"[0m
+  Rendered notificaris/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/notificaris/1/trimite" for 84.232.228.255 at 2014-06-18 13:21:22 +0300
+Processing by NotificarisController#trimite as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mNotificari Load (0.4ms)[0m  SELECT  "notificaris".* FROM "notificaris"  WHERE "notificaris"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered programari_mailer/trimite.text.erb (1.0ms)
+
+ProgramariMailer#trimite: processed outbound mail in 31.4ms
+
+Sent mail to android@dominet.ro (334.5ms)
+Date: Wed, 18 Jun 2014 13:21:22 +0300
+From: test@medix.ro
+To: android@dominet.ro
+Message-ID: <53a1682235a53_144f1c397bc97660@server.mail>
+Subject: 0724896535
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Vrem sa va anuntam de noul program al cabinetului
+  Rendered programari_mailer/trimite.text.erb (0.1ms)
+
+ProgramariMailer#trimite: processed outbound mail in 21.2ms
+
+Sent mail to android@dominet.ro (207.5ms)
+Date: Wed, 18 Jun 2014 13:21:22 +0300
+From: test@medix.ro
+To: android@dominet.ro
+Message-ID: <53a168228b4b8_144f1c397bc97759@server.mail>
+Subject: 0723984783
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Vrem sa va anuntam de noul program al cabinetului
+Redirected to http://89.32.135.10:1000/notificaris
+Completed 302 Found in 617ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/notificaris" for 84.232.228.255 at 2014-06-18 13:21:23 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.4ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 30ms (Views: 28.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 84.232.228.255 at 2014-06-18 13:21:31 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.5ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered programaris/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 35ms (Views: 32.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 84.232.228.255 at 2014-06-18 13:21:37 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.5ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/1" for 84.232.228.255 at 2014-06-18 13:21:38 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mProgramari Load (0.2ms)[0m  SELECT "programaris".* FROM "programaris"  WHERE "programaris"."pacient_id" = ?  [["pacient_id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 29ms (Views: 26.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1/programaris/new" for 84.232.228.255 at 2014-06-18 13:21:41 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.3ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (26.4ms)
+  Rendered programaris/new.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 55ms (Views: 50.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/1/programaris/new" for 84.232.228.255 at 2014-06-18 13:21:51 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.3ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (36.8ms)
+  Rendered programaris/new.html.erb within layouts/application (40.7ms)
+Completed 200 OK in 70ms (Views: 65.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/programaris" for 84.232.228.255 at 2014-06-18 13:22:52 +0300
+Processing by ProgramarisController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G5dTw5ftM4POfPeHbNB/UTGULAZvk9mZYv/unKzYrG0=", "programari"=>{"data"=>"06/12/2014", "ora"=>"16", "medicul"=>"Dan Ionescu", "tip"=>"Extractie", "pacient_id"=>"1"}, "commit"=>"Salveaza programarea"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "programaris" ("created_at", "data", "medicul", "ora", "pacient_id", "tip", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-06-18 10:22:52.941904"], ["data", "06/12/2014"], ["medicul", "Dan Ionescu"], ["ora", "16"], ["pacient_id", 1], ["tip", "Extractie"], ["updated_at", "2014-06-18 10:22:52.941904"]]
+  [1m[36m (133.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://89.32.135.10:1000/programaris/3
+Completed 302 Found in 142ms (ActiveRecord: 134.7ms)
+
+
+Started GET "/programaris/3" for 84.232.228.255 at 2014-06-18 13:22:53 +0300
+Processing by ProgramarisController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mProgramari Load (0.5ms)[0m  SELECT  "programaris".* FROM "programaris"  WHERE "programaris"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 28ms (Views: 24.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/pacients" for 84.232.228.255 at 2014-06-18 13:23:00 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.5ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 30ms (Views: 28.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/1" for 84.232.228.255 at 2014-06-18 13:24:46 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mProgramari Load (0.3ms)[0m  SELECT "programaris".* FROM "programaris"  WHERE "programaris"."pacient_id" = ?  [["pacient_id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 34ms (Views: 30.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/programaris" for 84.232.228.255 at 2014-06-18 13:26:25 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.4ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 36ms (Views: 34.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/dia" for 84.232.228.255 at 2014-06-18 13:27:25 +0300
+Processing by DiaController#index as HTML
+  [1m[36mDium Load (0.4ms)[0m  [1mSELECT "dia".* FROM "dia"[0m
+  Rendered dia/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 84.232.228.255 at 2014-06-18 13:27:38 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 37ms (Views: 34.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/notificaris" for 84.232.228.255 at 2014-06-18 13:27:48 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.4ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 31ms (Views: 29.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 84.232.228.255 at 2014-06-18 13:27:50 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 31ms (Views: 28.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1" for 84.232.228.255 at 2014-06-18 13:28:07 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mProgramari Load (0.3ms)[0m  [1mSELECT "programaris".* FROM "programaris"  WHERE "programaris"."pacient_id" = ?[0m  [["pacient_id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 34ms (Views: 31.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dia" for 84.232.228.255 at 2014-06-18 13:29:31 +0300
+Processing by DiaController#index as HTML
+  [1m[35mDium Load (0.4ms)[0m  SELECT "dia".* FROM "dia"
+  Rendered dia/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dia/new" for 84.232.228.255 at 2014-06-18 13:29:34 +0300
+Processing by DiaController#new as HTML
+  Rendered dia/_form.html.erb (79.0ms)
+  Rendered dia/new.html.erb within layouts/application (82.5ms)
+Completed 200 OK in 108ms (Views: 104.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 84.232.228.255 at 2014-06-18 13:30:58 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/notificaris" for 84.232.228.255 at 2014-06-18 13:32:14 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.4ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 31ms (Views: 29.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dia" for 84.232.228.255 at 2014-06-18 13:34:09 +0300
+Processing by DiaController#index as HTML
+  [1m[36mDium Load (0.3ms)[0m  [1mSELECT "dia".* FROM "dia"[0m
+  Rendered dia/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dia/new" for 84.232.228.255 at 2014-06-18 13:34:14 +0300
+Processing by DiaController#new as HTML
+  Rendered dia/_form.html.erb (44.2ms)
+  Rendered dia/new.html.erb within layouts/application (46.7ms)
+Completed 200 OK in 71ms (Views: 69.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/dia" for 84.232.228.255 at 2014-06-18 13:34:21 +0300
+Processing by DiaController#index as HTML
+  [1m[35mDium Load (0.4ms)[0m  SELECT "dia".* FROM "dia"
+  Rendered dia/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 84.232.228.255 at 2014-06-18 13:34:22 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.5ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/1" for 84.232.228.255 at 2014-06-18 13:34:26 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mProgramari Load (0.3ms)[0m  [1mSELECT "programaris".* FROM "programaris"  WHERE "programaris"."pacient_id" = ?[0m  [["pacient_id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 34ms (Views: 31.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/1/dia/new" for 84.232.228.255 at 2014-06-18 13:34:28 +0300
+Processing by DiaController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  Rendered dia/_form.html.erb (45.1ms)
+  Rendered dia/new.html.erb within layouts/application (47.7ms)
+Completed 200 OK in 74ms (Views: 72.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/programaris" for 84.232.228.255 at 2014-06-18 13:34:44 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[35mProgramari Load (0.4ms)[0m  SELECT "programaris".* FROM "programaris"
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 37ms (Views: 34.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/notificaris" for 84.232.228.255 at 2014-06-18 13:34:56 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.4ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 31ms (Views: 29.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dia" for 84.232.228.255 at 2014-06-18 13:34:59 +0300
+Processing by DiaController#index as HTML
+  [1m[36mDium Load (0.4ms)[0m  [1mSELECT "dia".* FROM "dia"[0m
+  Rendered dia/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 84.232.228.255 at 2014-06-18 13:35:02 +0300
+[2014-06-18 15:14:57] FATAL SignalException: SIGTERM
+	/usr/local/rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:170:in `select'
+	/usr/local/rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:170:in `block in start'
+	/usr/local/rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:32:in `start'
+	/usr/local/rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:160:in `start'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/handler/webrick.rb:14:in `run'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/server.rb:264:in `start'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/commands/server.rb:69:in `start'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/commands/commands_tasks.rb:81:in `block in server'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/commands/commands_tasks.rb:76:in `tap'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/commands/commands_tasks.rb:76:in `server'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/commands/commands_tasks.rb:40:in `run_command!'
+	/usr/local/rvm/gems/ruby-2.1.2/gems/railties-4.1.1/lib/rails/commands.rb:17:in `<top (required)>'
+	bin/rails:8:in `require'
+	bin/rails:8:in `<main>'
+[2014-06-18 15:14:57] INFO  going to shutdown ...
+[2014-06-18 15:14:57] INFO  WEBrick::HTTPServer#start done.
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/programaris" for 84.232.228.255 at 2014-06-18 13:37:19 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.5ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 37ms (Views: 34.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 84.232.228.255 at 2014-06-18 13:37:23 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 31ms (Views: 28.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/notificaris" for 84.232.228.255 at 2014-06-18 13:38:38 +0300
+Processing by NotificarisController#index as HTML
+  [1m[35mNotificari Load (0.4ms)[0m  SELECT "notificaris".* FROM "notificaris"
+  Rendered notificaris/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 84.232.228.255 at 2014-06-18 13:42:54 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 31ms (Views: 28.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 81.180.92.184 at 2014-06-18 14:24:46 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.5ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/programaris" for 81.180.92.184 at 2014-06-18 14:24:48 +0300
+Processing by ProgramarisController#index as HTML
+  [1m[36mProgramari Load (0.5ms)[0m  [1mSELECT "programaris".* FROM "programaris"[0m
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mPacient Load (0.3ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 37ms (Views: 35.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 81.180.92.184 at 2014-06-18 14:24:54 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 31ms (Views: 29.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 81.180.92.184 at 2014-06-18 14:40:14 +0300
+Processing by PacientsController#index as HTML
+  [1m[35mPacient Load (0.4ms)[0m  SELECT "pacients".* FROM "pacients"
+  Rendered pacients/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 31ms (Views: 29.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/pacients/1" for 81.180.92.184 at 2014-06-18 14:40:23 +0300
+Processing by PacientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPacient Load (0.3ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mProgramari Load (0.2ms)[0m  SELECT "programaris".* FROM "programaris"  WHERE "programaris"."pacient_id" = ?  [["pacient_id", 1]]
+  Rendered pacients/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 34ms (Views: 31.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/1/programaris/new" for 81.180.92.184 at 2014-06-18 14:40:25 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (23.7ms)
+  Rendered programaris/new.html.erb within layouts/application (26.9ms)
+Completed 200 OK in 56ms (Views: 51.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pacients/1/programaris/new" for 81.180.92.184 at 2014-06-18 14:40:30 +0300
+Processing by ProgramarisController#new as HTML
+  Parameters: {"pacient_id"=>"1"}
+  [1m[36mPacient Load (0.2ms)[0m  [1mSELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mPacient Load (0.2ms)[0m  SELECT  "pacients".* FROM "pacients"  WHERE "pacients"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered programaris/_form.html.erb (23.7ms)
+  Rendered programaris/new.html.erb within layouts/application (26.4ms)
+Completed 200 OK in 57ms (Views: 52.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 81.180.92.184 at 2014-06-18 14:41:15 +0300
+Processing by PacientsController#index as HTML
+  [1m[36mPacient Load (0.4ms)[0m  [1mSELECT "pacients".* FROM "pacients"[0m
+  Rendered pacients/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 31ms (Views: 29.3ms | ActiveRecord: 0.4ms)
+Exiting

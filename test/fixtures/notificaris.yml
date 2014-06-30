@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyString
+  pacient_id: MyString
+  var: MyString
+  var1: MyString
+  var2: MyString
+  var3: MyString
+  var4: MyString
+  var5: MyString
+
+two:
+  text: MyString
+  pacient_id: MyString
+  var: MyString
+  var1: MyString
+  var2: MyString
+  var3: MyString
+  var4: MyString
+  var5: MyString

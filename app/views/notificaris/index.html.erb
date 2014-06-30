@@ -1,0 +1,34 @@
+<%- model_class = Notificari -%>
+<div class="page-header">
+  <h1>Notificari</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name("Continut notificare") %></th>
+      
+      <th>Optiuni</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @notificaris.each do |notificari| %>
+      <tr>
+        <td><%= link_to notificari.id, notificari_path(notificari) %></td>
+        <td><%= notificari.text %></td>
+        
+        <td>
+          <%= link_to 'Modifica notificare',
+                      edit_notificari_path(notificari), :class => 'btn btn-mini btn-info' %>
+                      <%= link_to 'Trimite pacientilor',
+                      trimite_notificari_path(notificari), :class => 'btn btn-mini btn-danger' %>
+          
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Notificare noua',
+            new_notificari_path,
+            :class => 'btn btn-primary' %>

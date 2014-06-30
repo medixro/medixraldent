@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  anamn: MyString
+  reztc: MyString
+  tparac: MyString
+  diagnostic: MyString
+  recom: MyString
+  var: MyString
+  var1: MyString
+  var2: MyString
+  var3: MyString
+  var4: MyString
+  var5: MyString
+
+two:
+  anamn: MyString
+  reztc: MyString
+  tparac: MyString
+  diagnostic: MyString
+  recom: MyString
+  var: MyString
+  var1: MyString
+  var2: MyString
+  var3: MyString
+  var4: MyString
+  var5: MyString

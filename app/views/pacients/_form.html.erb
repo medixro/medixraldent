@@ -1,0 +1,16 @@
+<%= simple_form_for @pacient, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :nume , :placeholder => 'Nume pacient...',input_html: {size: 70} %><br>
+  <%= f.input :prenume ,:placeholder => 'Prenume pacient...',input_html: {size: 70}%><br>
+  <%= f.input :var,label: "CNP", :placeholder => "CNP pacient....",input_html: {size: 70} %>
+  <%= f.input :adresa,:placeholder => 'Adresa pacient...',input_html: {size: 70} %><br>
+  <%= f.input :nrtel,label: "Telefon", :placeholder => 'Numar de telefon pacient...',input_html: {size: 70} %><br>
+  <%= f.input :email,:placeholder => 'Email pacient...',input_html: {size: 70} %>
+  <%= f.input :var,label: "Medic", :placeholder => 'Medic la care este programat...', collection:  ['Raluca Enuca', 'Bogdan Chisevescu '] %><br>
+   <%= f.input :var1, label: "Trimitere notificari prin sms:", collection: ['DA', 'NU'] %>
+ <br><br>
+  <div class="form-actions">
+    <%= f.button :submit,'Salveaza', :class => 'btn-primary' %>
+    <%= link_to 'Anuleaza',
+                pacients_path, :class => 'btn' %>
+  </div>
+<% end %>

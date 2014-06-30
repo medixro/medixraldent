@@ -1,0 +1,91 @@
+<%- model_class = Pacient -%>
+<div class="page-header">
+  <h1><%= @pacient.prenume  %> <%= @pacient.nume %></h1><br>
+  <h4>Datele de identificare ale pacientului</h4>
+</div>
+
+<dl class="dl-horizontal">
+ 
+ <dt><strong><%= model_class.human_attribute_name(:CNP) %>:</strong></dt>
+  <dd><%= @pacient.var %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:adresa) %>:</strong></dt>
+  <dd><%= @pacient.adresa %></dd>
+  <dt><strong><%= model_class.human_attribute_name("Telefon") %>:</strong></dt>
+  <dd><%= @pacient.nrtel %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @pacient.email %></dd>
+ 
+</dl>
+
+<div class="form-actions">
+  <%= link_to 'Inapoi la lista de pacienti',
+              pacients_path, :class => 'btn btn-info'  %>
+  <%= link_to 'Modifica date pacient',
+              edit_pacient_path(@pacient), :class => 'btn btn-info' %>
+  <%= link_to 'Programeaza pacient',
+              new_pacient_programari_path(@pacient), 'data-no-turbolink' => true, :class => 'btn btn-danger' %>   
+              <%= link_to 'Diagnostic nou',
+              new_pacient_rezultate_path(@pacient), :class => 'btn btn-info' %>  
+  <%= link_to "Fisa medicala PDF", pacient_path(@pacient, format: "pdf"), :class => 'btn btn-info' %>
+  <%= link_to "Trimite fisa medicala", trimite_pacient_path(@pacient), :class => 'btn btn-warning' %>        
+  
+</div>
+<br><br><br>
+<h2>Istoric  programari </h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name('ID programare') %></th>
+      <th><%= model_class.human_attribute_name(:data) %></th>
+      <th><%= model_class.human_attribute_name(:ora) %></th>
+      <th><%= model_class.human_attribute_name("Medic") %></th>
+      <th><%= model_class.human_attribute_name("Tip investigatie") %></th>
+     
+     
+    </tr>
+  </thead>
+  <tbody>
+  <% @pacient.programaris.each do |programari| %>
+    
+      <tr>
+        <td><%= link_to programari.id, programari_path(programari) %></td>
+        <td><%= programari.data %></td>
+        <td><%= programari.ora %></td>
+        <td><%= programari.medicul %></td>
+        <td><%= programari.tip %></td>
+        <% end %>
+        </tr>
+        </tbody>
+        </table>
+        <br><br>
+        <h2>Istoric  diagnostice pacient </h2>
+        <table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name('ID Diagnostic') %></th>
+      <th><%= model_class.human_attribute_name('Rezultat Examinare') %></th>
+      <th><%= model_class.human_attribute_name('Diagnostic') %></th>
+      <th><%= model_class.human_attribute_name('Imagini diagnostic') %></th>
+     
+     
+     
+    </tr>
+  </thead>
+  <tbody>
+  <% @pacient.rezultates.each do |rezultate| %>
+    
+      <tr>
+        <td><%= link_to rezultate.id, rezultate_path(rezultate) %></td>
+        <td><%= rezultate.exam %></td>
+        <td><%= rezultate.diagn %></td>
+        
+        <td><%= image_tag rezultate.image_url(:thumb).to_s %><br>
+        <% if rezultate.image_url.present? %>
+        <%= link_to 'Vezi imaginea', rezultate.image_url %></td>
+       <% end %>
+        <% end %>
+        </tr>
+        </tbody>
+        </table>
+        <br><br>
+        

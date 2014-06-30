@@ -1,0 +1,55 @@
+<%- model_class = Pacient -%>
+<div class="page-header">
+  <h1>Lista pacienti </h1>
+  <%= link_to 'Pacient nou',
+            new_pacient_path,
+            :class => 'btn btn-primary' %>
+  <%= simple_form_for pacients_path, :html => { :class => 'form-horizontal pull-right' }, :method => 'get' do%>
+<% hidden_field_tag :direction, params[:direction] %>
+<% hidden_field_tag :sort, params[:sort] %>
+<p>
+    <%= text_field_tag :search, params[:search] %>
+
+    <%= submit_tag "Cauta", :denumire => nil, :class => 'btn btn-info' %>
+  </p>
+<% end %>
+</div>
+<table class="table table-striped">
+  <thead>
+
+    <tr>
+      <th><%= model_class.human_attribute_name(:nume) %></th>
+      <th><%= model_class.human_attribute_name(:prenume) %></th>
+     
+      <th><%= model_class.human_attribute_name(:adresa) %></th>
+      <th><%= model_class.human_attribute_name("Telefon") %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th> </th>
+      <th>Optiuni</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pacients.each do |pacient| %>
+      <tr>
+       <td><%= link_to pacient.nume, pacient_path(pacient)  %></td>
+        <td><%= link_to pacient.prenume, pacient_path(pacient)  %></td>
+        
+        <td><%= pacient.adresa %></td>
+        <td><%= pacient.nrtel %></td>
+        <td><%= pacient.email %></td>
+        <td> </td>
+        <td>
+          <%= link_to 'Modifica date pacient',
+                      edit_pacient_path(pacient), :class => 'btn btn-mini btn-info' %>
+                      <%= link_to 'Programeaza',
+                      new_pacient_programari_path(pacient),'data-no-turbolink' => true,:class => 'btn btn-mini btn-danger' %>
+          
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @pacients %><br>
+<%= link_to 'Pacient nou',
+            new_pacient_path,
+            :class => 'btn btn-primary' %>

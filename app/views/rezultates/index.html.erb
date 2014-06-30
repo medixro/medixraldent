@@ -1,0 +1,54 @@
+<%- model_class = Rezultate -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:exam) %></th>
+      <th><%= model_class.human_attribute_name(:diagn) %></th>
+      <th><%= model_class.human_attribute_name(:image) %></th>
+      <th><%= model_class.human_attribute_name(:var) %></th>
+      <th><%= model_class.human_attribute_name(:var1) %></th>
+      <th><%= model_class.human_attribute_name(:var2) %></th>
+      <th><%= model_class.human_attribute_name(:var3) %></th>
+      <th><%= model_class.human_attribute_name(:var4) %></th>
+      <th><%= model_class.human_attribute_name(:var5) %></th>
+      <th><%= model_class.human_attribute_name(:pacient_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rezultates.each do |rezultate| %>
+      <tr>
+        <td><%= link_to rezultate.id, rezultate_path(rezultate) %></td>
+        <td><%= rezultate.exam %></td>
+        <td><%= rezultate.diagn %></td>
+        <td><%= rezultate.image %></td>
+        <td><%= rezultate.var %></td>
+        <td><%= rezultate.var1 %></td>
+        <td><%= rezultate.var2 %></td>
+        <td><%= rezultate.var3 %></td>
+        <td><%= rezultate.var4 %></td>
+        <td><%= rezultate.var5 %></td>
+        <td><%= rezultate.pacient_id %></td>
+        <td><%=l rezultate.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_rezultate_path(rezultate), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      rezultate_path(rezultate),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_rezultate_path,
+            :class => 'btn btn-primary' %>

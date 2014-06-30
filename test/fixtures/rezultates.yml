@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exam: MyString
+  diagn: MyString
+  image: MyString
+  var: MyString
+  var1: MyString
+  var2: MyString
+  var3: MyString
+  var4: MyString
+  var5: MyString
+  pacient_id: 
+
+two:
+  exam: MyString
+  diagn: MyString
+  image: MyString
+  var: MyString
+  var1: MyString
+  var2: MyString
+  var3: MyString
+  var4: MyString
+  var5: MyString
+  pacient_id: 

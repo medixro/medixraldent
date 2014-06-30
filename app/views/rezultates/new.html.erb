@@ -1,0 +1,6 @@
+<%- model_class = Rezultate -%>
+<div class="page-header">
+<% p = Pacient.find(@rezultate.pacient_id) %>
+  <h1>Diagnostic nou pt pacientul: <%= p.prenume %> <%= p.nume %></h1>
+</div>
+<%= render :partial => 'form' %>

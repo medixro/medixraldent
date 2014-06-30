@@ -1,0 +1,29 @@
+<%- model_class = Programari -%>
+<div class="page-header">
+<% p = Pacient.find(@programari.pacient_id) %>
+  <h1>Programare pacient <%= p.prenume%> <%= p.nume %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:data) %>:</strong></dt>
+  <dd><%= @programari.data %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ora) %>:</strong></dt>
+  <dd><%= @programari.ora %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:medicul) %>:</strong></dt>
+  <dd><%= @programari.medicul %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tip) %>:</strong></dt>
+  <dd><%= @programari.tip %></dd>
+  
+</dl>
+
+<div class="form-actions">
+  <%= link_to 'Inapoi la lista pacienti',
+              pacients_path, :class => 'btn btn-info'  %>
+  <%= link_to 'Modifica programarea',
+              edit_programari_path(@programari), :class => 'btn btn-info' %>
+  <%= link_to 'Anuleaza programarea',
+              programari_path(@programari),
+              :method => 'delete',
+              :data => { :confirm => 'Esti sigur ca vrei sa anulezi programarea?' },
+              :class => 'btn btn-danger' %>
+</div>

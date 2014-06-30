@@ -1,0 +1,20 @@
+<%= simple_form_for @rezultate, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :exam,:as => :text, label: 'Rezultatul examinarii', placeholder: 'Introdu rezultatul examinarii' , input_html: { :rows => 5 } %>
+  <%= f.input :diagn,:as => :text, label: 'Diagnosticul:', placeholder: 'Introdu diagnosticul' , input_html: { :rows => 5 } %>
+  <%= f.label :Adauga_imagine %>
+  <%= f.file_field :image %>
+  <%= f.input :pacient_id ,:as => :hidden %><br>
+  <h4>Alege dintii cu probleme pt a fi salvati in diagnostic</h4>
+  <%= f.input :var,:label => false, as: :boolean %>
+  <%= image_tag("dinti/bucal.png", :alt => "rss feed") %>
+  <%= f.input :var1,:label => false, as: :boolean %>
+  <%= image_tag("dinti/lingual.png", :alt => "rss feed") %>
+ 
+
+  <br><br>
+  <div class="form-actions">
+    <%= f.button :submit, 'Salveaza diagnosticul',:class => 'btn-primary' %>
+    <%= link_to 'Anuleaza',
+                pacients_path, :class => 'btn' %>
+  </div>
+<% end %>

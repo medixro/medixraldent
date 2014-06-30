@@ -1,0 +1,33 @@
+<%- model_class = Programari -%><%- model_class = Pacient -%>
+<div class="page-header">
+<% pacient = Pacient.find(@programari.pacient_id) %>
+  <h2>Programare noua, pacient : <%= pacient.prenume%> <%= pacient.nume %></h2><br>
+  <h5>Campurile cu steluta sunt obligatorii</h5>
+</div>
+<%= render :partial => 'form' %>
+<br><br>
+<% @date = params[:date] ? Date.parse(params[:date]) : Date.today %>
+<div id="articles">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    Luna <%= @date.strftime("%m anul %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% t = date.strftime("%d-%m-%Y") %>
+    <% Programari.find_each do |programari| %>
+   
+    <% if programari.data == t.to_s %>
+      <ul>
+        
+              <% p = Pacient.find(programari.pacient_id) %>
+          <li><%= link_to p.prenume, pacient_path(p) %> <%= link_to p.nume, pacient_path(p) %></li>
+              Ora: <%= programari.ora %>
+             
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
+<br><br><br>

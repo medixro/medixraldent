@@ -1,0 +1,22 @@
+<%- model_class = Notificari -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:text) %>:</strong></dt>
+  <dd><%= @notificari.text %></dd>
+  
+</dl>
+
+<div class="form-actions">
+  <%= link_to 'Inapoi la lista de notificari',
+              notificaris_path, :class => 'btn btn-info'  %>
+  <%= link_to 'Modifica notificarea',
+              edit_notificari_path(@notificari), :class => 'btn btn-info' %>
+  <%= link_to 'Sterge notificarea',
+              notificari_path(@notificari),
+              :method => 'delete',
+              :data => { :confirm => 'Esti sigur ca vrei sa stergi notificarea?' },
+              :class => 'btn btn-danger' %>
+</div>
